@@ -6,9 +6,7 @@ import {
   FiDatabase, 
   FiServer, 
   FiSmartphone, 
-  FiGlobe, 
   FiTool,
-  FiGitBranch,
   FiCloud
 } from 'react-icons/fi';
 import './Skills.css';

@@ -3,18 +3,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiHome, FiUser, FiCode, FiFolder, FiMail } from 'react-icons/fi';
 import './Navbar.css';
 
+const navItems = [
+  { id: 'home', label: 'Home', icon: FiHome },
+  { id: 'about', label: 'About', icon: FiUser },
+  { id: 'skills', label: 'Skills', icon: FiCode },
+  { id: 'projects', label: 'Projects', icon: FiFolder },
+  { id: 'contact', label: 'Contact', icon: FiMail },
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-
-  const navItems = [
-    { id: 'home', label: 'Home', icon: FiHome },
-    { id: 'about', label: 'About', icon: FiUser },
-    { id: 'skills', label: 'Skills', icon: FiCode },
-    { id: 'projects', label: 'Projects', icon: FiFolder },
-    { id: 'contact', label: 'Contact', icon: FiMail },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
