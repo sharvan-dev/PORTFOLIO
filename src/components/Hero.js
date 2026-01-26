@@ -128,7 +128,7 @@ const Hero = () => {
             
             <motion.div variants={itemVariants} className="hero-social">
               <motion.a
-                href="https://github.com/sharvan"
+                href="https://github.com/sharvan-dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
@@ -138,7 +138,7 @@ const Hero = () => {
                 <FiGithub />
               </motion.a>
               <motion.a
-                href="https://linkedin.com/in/sharvan"
+                href="https://www.linkedin.com/in/sharvan-verma-362652293"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
