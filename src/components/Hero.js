@@ -138,7 +138,7 @@ const Hero = () => {
                 <FiGithub />
               </motion.a>
               <motion.a
-                href="https://www.linkedin.com/in/sharvan-verma-362652293"
+                href="https://linkedin.com/in/sharvan-verma-362652293"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"

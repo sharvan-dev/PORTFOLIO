@@ -186,7 +186,7 @@
 .social-link:hover {
   background: var(--primary);
   border-color: var(--primary);
-  color: var(--white);
+  color:  var(--white);
   box-shadow: var(--shadow-lg);
 }
 
