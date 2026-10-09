@@ -248,3 +248,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 This portfolio is designed to make a lasting impression. Customize it with your projects, skills, and personal brand to stand out in the competitive tech landscape.
 
 For support or questions, feel free to reach out!
+
+## Deploy to Vercel
+
+Import this repository into Vercel. The included `vercel.json` runs `npm run build` and serves the `build` directory. The contact endpoint in `api/contact.js` is deployed as a serverless function at `/api/contact` and does not depend on the local Express development server.
+
+For contact-form email, add these server-side environment variables in Vercel (Production, and Preview/Development if needed):
+
+- `SMTP_HOST`
+- `SMTP_PORT` (`465` for implicit TLS or `587` for STARTTLS)
+- `SMTP_SECURE` (`true` for port `465`; `false` for port `587`)
+- `EMAIL_USER`
+- `EMAIL_PASS`
+- `CONTACT_EMAIL` (optional; defaults to `EMAIL_USER`)
+
+Use your mail provider SMTP credentials (for Gmail, an app password), then redeploy after adding or changing variables. Never add credentials to `REACT_APP_*` variables or frontend code. A successful production build confirms compilation only; verify actual email delivery by submitting the form after deployment with valid SMTP settings.
