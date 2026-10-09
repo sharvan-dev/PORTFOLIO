@@ -1,7 +1,7 @@
 {
   "name": "sharvan-portfolio",
   "version": "1.0.0",
-  "description": "Premium portfolio website for Sharvan - passionate developer and creator",
+  "description": "Personal portfolio for Sharvan",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
@@ -15,6 +15,7 @@
     "install-server": "npm install",
     "install-all": "npm install"
   },
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

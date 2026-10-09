@@ -1,259 +1,41 @@
-# Sharvan's Professional Portfolio
+# Sharvan's portfolio
 
-A premium, modern portfolio website built with React and Node.js, showcasing skills, projects, and professional experience.
+A React portfolio for introducing Sharvan, showcasing verified public projects, and providing direct contact links.
 
-![Portfolio Preview](https://img.shields.io/badge/Status-Ready-brightgreen)
-![React](https://img.shields.io/badge/React-18.2.0-blue)
-![Node.js](https://img.shields.io/badge/Node.js-Latest-green)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+## Run locally
 
-## 🚀 Features
+Requirements: Node.js and npm.
 
-- **Modern Design**: Premium UI with smooth animations and responsive design
-- **Interactive Components**: Framer Motion animations and scroll-triggered effects
-- **Contact Form**: Functional contact form with email integration
-- **Project Showcase**: Dynamic project gallery with filtering capabilities
-- **Skills Display**: Animated skill bars and technology categorization
-- **SEO Optimized**: Meta tags and structured data for better search visibility
-- **Mobile First**: Fully responsive design for all devices
-- **Performance**: Optimized for fast loading and smooth interactions
-
-## 🛠️ Tech Stack
-
-### Frontend
-- **React 18.2.0** - Modern React with hooks and functional components
-- **Framer Motion** - Smooth animations and transitions
-- **React Router** - Client-side routing
-- **React Icons** - Beautiful icon library
-- **React Hot Toast** - Elegant notifications
-- **Axios** - HTTP client for API calls
-
-### Backend
-- **Node.js** - Server-side JavaScript runtime
-- **Express.js** - Web application framework
-- **Nodemailer** - Email sending functionality
-- **Helmet** - Security middleware
-- **CORS** - Cross-origin resource sharing
-- **Rate Limiting** - API protection
-
-### Styling
-- **CSS3** - Modern CSS with custom properties
-- **CSS Grid & Flexbox** - Advanced layout systems
-- **Custom Design System** - Consistent spacing, colors, and typography
-- **Responsive Design** - Mobile-first approach
-
-## 📋 Prerequisites
-
-Before running this project, make sure you have:
-
-- **Node.js** (v14 or higher)
-- **npm** or **yarn** package manager
-- **Git** for version control
-
-## 🚀 Quick Start
-
-### 1. Clone the Repository
 ```bash
-git clone https://github.com/sharvan/portfolio.git
-cd portfolio
-```
-
-### 2. Install Dependencies
-```bash
-# Install server dependencies
 npm install
-
-# Install client dependencies
-npm run install-client
+npm start
 ```
 
-### 3. Environment Setup
+The development site runs at `http://localhost:3000`.
+
+In a second terminal, run the contact API:
+
 ```bash
-# Copy environment template
-cp .env.example .env
-
-# Edit .env file with your credentials
-# Required for contact form functionality
+npm run server
 ```
 
-### 4. Configure Email (Optional)
-For the contact form to work, add your email credentials to `.env`:
-```env
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-app-password
-CONTACT_EMAIL=your-contact-email@gmail.com
-```
+The development server proxies `/api/contact` to the API on port `5000`. Copy `.env.example` to `.env` and configure `SMTP_HOST`, `EMAIL_USER`, and `EMAIL_PASS`; for Gmail, use an app password. `SMTP_PORT` defaults to `465`, and `SMTP_SECURE` defaults to `true` on port `465` (`false` for STARTTLS on port `587`). Optionally set `CONTACT_EMAIL` to deliver messages to a separate inbox; when blank, messages go to `EMAIL_USER`. For deployment, set the same values in the hosting platform's server-side environment settings. Never expose these credentials in frontend code.
 
-**Note**: For Gmail, use App Password instead of your regular password.
+## Build
 
-### 5. Add Your Profile Photo
-Replace the placeholder in the Hero component:
-1. Add your professional photo to `client/src/assets/profile.jpg`
-2. Update the Hero component to use your actual image
-
-### 6. Start Development
 ```bash
-# Start both client and server
-npm run dev
-
-# Or start them separately:
-npm run server  # Backend on port 5000
-npm run client  # Frontend on port 3000
-```
-
-## 📁 Project Structure
-
-```
-portfolio/
-├── client/                 # React frontend
-│   ├── public/            # Static assets
-│   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── assets/        # Images and media
-│   │   ├── App.js         # Main app component
-│   │   └── index.js       # Entry point
-│   └── package.json       # Client dependencies
-├── server/                # Node.js backend
-│   └── index.js          # Express server
-├── .env.example          # Environment template
-├── package.json          # Server dependencies
-└── README.md            # This file
-```
-
-## 🎨 Customization
-
-### Personal Information
-Update your details in:
-- `client/src/components/Hero.js` - Name, title, description
-- `client/src/components/About.js` - About section content
-- `client/src/components/Contact.js` - Contact information
-- `client/src/components/Footer.js` - Footer details
-
-### Projects
-Add your projects in:
-- `client/src/components/Projects.js` - Update the `projects` array
-
-### Skills
-Modify your skills in:
-- `client/src/components/Skills.js` - Update the `skillCategories` array
-
-### Styling
-Customize the design in:
-- `client/src/index.css` - Global styles and CSS variables
-- Individual component CSS files for specific styling
-
-## 🚀 Deployment
-
-### Frontend (Netlify/Vercel)
-```bash
-# Build the client
-cd client
 npm run build
-
-# Deploy the build folder to your hosting service
 ```
-
-### Backend (Heroku/Railway)
-```bash
-# The server is ready for deployment
-# Make sure to set environment variables on your hosting platform
-```
-
-### Full Stack (Railway/Render)
-```bash
-# Both frontend and backend can be deployed together
-# Configure build commands in your hosting platform
-```
-
-## 📧 Contact Form Setup
-
-The contact form requires email configuration:
-
-1. **Gmail Setup**:
-   - Enable 2-Factor Authentication
-   - Generate an App Password
-   - Use the App Password in `EMAIL_PASS`
-
-2. **Other Email Services**:
-   - Update the transporter configuration in `server/index.js`
-   - Refer to Nodemailer documentation for your email provider
-
-## 🔧 Available Scripts
-
-### Root Directory
-- `npm run dev` - Start both client and server
-- `npm run server` - Start backend server
-- `npm run client` - Start frontend development server
-- `npm run build` - Build client for production
-- `npm run install-all` - Install all dependencies
-
-### Client Directory
-- `npm start` - Start development server
-- `npm run build` - Build for production
-- `npm test` - Run tests
-- `npm run eject` - Eject from Create React App
-
-## 🌟 Features in Detail
-
-### Responsive Design
-- Mobile-first approach
-- Breakpoints: 768px (mobile), 1024px (tablet), 1400px (desktop)
-- Flexible grid systems and adaptive typography
-
-### Animations
-- Scroll-triggered animations using Intersection Observer
-- Smooth page transitions with Framer Motion
-- Hover effects and micro-interactions
-
-### Performance
-- Optimized images and assets
-- Lazy loading for better performance
-- Minimal bundle size with code splitting
-
-### SEO
-- Semantic HTML structure
-- Meta tags for social sharing
-- Structured data for search engines
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Author
-
-**Sharvan**
-- Email: irealsharvan@gmail.com
-- Phone: +91 8528145486
-- Location: Kathaura, Sikanderpur, Ballia, Uttar Pradesh
-
-## 🙏 Acknowledgments
-
-- Design inspiration from modern portfolio trends
-- Icons from React Icons library
-- Animations powered by Framer Motion
-- Built with Create React App
-
----
-
-**Ready to showcase your work?** 🚀
-
-This portfolio is designed to make a lasting impression. Customize it with your projects, skills, and personal brand to stand out in the competitive tech landscape.
-
-For support or questions, feel free to reach out!
 
 ## Deploy to Vercel
 
-Import this repository into Vercel. The included `vercel.json` runs `npm run build` and serves the `build` directory. The contact endpoint in `api/contact.js` is deployed as a serverless function at `/api/contact` and does not depend on the local Express development server.
+Import this repository into Vercel and use the included `vercel.json` settings:
+the build command is `npm run build`, and the static output directory is `build`.
+The contact endpoint in `api/contact.js` is deployed as a serverless function at
+`/api/contact`; it does not depend on the local Express development server.
 
-For contact-form email, add these server-side environment variables in Vercel (Production, and Preview/Development if needed):
+For contact-form email, add these variables in the Vercel project's server-side
+Environment Variables settings (Production, and Preview/Development if needed):
 
 - `SMTP_HOST`
 - `SMTP_PORT` (`465` for implicit TLS or `587` for STARTTLS)
@@ -262,4 +44,17 @@ For contact-form email, add these server-side environment variables in Vercel (P
 - `EMAIL_PASS`
 - `CONTACT_EMAIL` (optional; defaults to `EMAIL_USER`)
 
-Use your mail provider SMTP credentials (for Gmail, an app password), then redeploy after adding or changing variables. Never add credentials to `REACT_APP_*` variables or frontend code. A successful production build confirms compilation only; verify actual email delivery by submitting the form after deployment with valid SMTP settings.
+Use your mail provider's SMTP credentials (for Gmail, an app password), then
+redeploy after adding or changing variables. Do not add credentials to
+`REACT_APP_*` variables or frontend code. The successful production build
+confirms the app compiles; verify actual email delivery by submitting the form
+after deployment with valid SMTP settings.
+
+## Portfolio content
+
+- Update the project details and repository links in `src/components/Projects.js`.
+- Update grouped technologies in `src/components/Skills.js`.
+- Replace `public/profile.jpg` to change the portrait.
+- Add original project screenshots to `public/` and reference them from the corresponding project entry. Do not use mockups as project screenshots.
+
+The featured projects link to public repositories. Screenshots and deployed demo URLs should only be added when verified source assets or live applications are available.
