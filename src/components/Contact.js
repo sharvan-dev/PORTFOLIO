@@ -88,11 +88,6 @@ const Contact = () => {
           <button className="button button-primary" type="submit" disabled={isSubmitting}>
             {isSubmitting ? 'Sending…' : 'Send message'} <FiSend aria-hidden="true" />
           </button>
-          <p className="form-note">
-            Message delivery needs server-side <code>SMTP_HOST</code>, <code>EMAIL_USER</code>, and <code>EMAIL_PASS</code>.
-            Set optional <code>CONTACT_EMAIL</code> to choose a separate inbox. Add these to the
-            server environment, never client code. Until configured, use the direct email link.
-          </p>
           {submissionStatus && (
             <p className={`form-status form-status-${submissionStatus.type}`} role={submissionStatus.type === 'error' ? 'alert' : 'status'} aria-live={submissionStatus.type === 'error' ? 'assertive' : 'polite'}>
               {submissionStatus.message}

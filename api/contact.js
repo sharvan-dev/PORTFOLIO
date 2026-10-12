@@ -28,6 +28,9 @@ async function handler(req, res) {
   if (typeof subject !== 'string' || !subject.trim()) {
     return res.status(400).json({ error: 'Please enter a subject.' });
   }
+  if (/[\r\n]/.test(subject)) {
+    return res.status(400).json({ error: 'Subject must not contain line breaks.' });
+  }
   if (subject.trim().length > 200) {
     return res.status(400).json({ error: 'Subject must be 200 characters or fewer.' });
   }
@@ -41,16 +44,16 @@ async function handler(req, res) {
   const host = process.env.SMTP_HOST?.trim();
   const user = process.env.EMAIL_USER?.trim();
   const pass = process.env.EMAIL_PASS;
-  const recipient = process.env.CONTACT_EMAIL?.trim() || user;
+  const recipient = process.env.CONTACT_EMAIL?.trim();
   const port = Number(process.env.SMTP_PORT || 465);
   const secureSetting = process.env.SMTP_SECURE?.toLowerCase();
   const secure = secureSetting
     ? secureSetting === 'true'
     : port === 465;
 
-  if (!host || !user || !pass) {
+  if (!host || !user || !pass || !recipient) {
     return res.status(503).json({
-      error: 'Email delivery is not configured. Set SMTP_HOST, EMAIL_USER, and EMAIL_PASS in the server environment.',
+      error: 'Email delivery is not configured. Set SMTP_HOST, EMAIL_USER, EMAIL_PASS, and CONTACT_EMAIL in the server environment.',
     });
   }
 

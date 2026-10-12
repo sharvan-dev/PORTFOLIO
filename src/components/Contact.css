@@ -15,8 +15,6 @@
 .contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); outline: 2px solid rgba(201, 80, 50, .18); }
 .contact-form .button { justify-self: start; border: 0; cursor: pointer; }
 .contact-form .button:disabled { opacity: .65; cursor: wait; }
-.form-note { margin: -4px 0 0; color: var(--form-muted); font-size: .77rem; }
-.form-note code { font-size: .74rem; }
 .form-status { margin: 0; padding: 10px 12px; border-left: 3px solid; font-size: .88rem; }
 .form-status-pending { border-color: var(--status-pending-line); background: var(--status-pending-bg); color: var(--status-pending-text); }
 .form-status-success { border-color: var(--status-success-line); background: var(--status-success-bg); color: var(--status-success-text); }

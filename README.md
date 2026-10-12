@@ -19,7 +19,7 @@ In a second terminal, run the contact API:
 npm run server
 ```
 
-The development server proxies `/api/contact` to the API on port `5000`. Copy `.env.example` to `.env` and configure `SMTP_HOST`, `EMAIL_USER`, and `EMAIL_PASS`; for Gmail, use an app password. `SMTP_PORT` defaults to `465`, and `SMTP_SECURE` defaults to `true` on port `465` (`false` for STARTTLS on port `587`). Optionally set `CONTACT_EMAIL` to deliver messages to a separate inbox; when blank, messages go to `EMAIL_USER`. For deployment, set the same values in the hosting platform's server-side environment settings. Never expose these credentials in frontend code.
+The development server proxies `/api/contact` to the API on port `5000`. Configure `SMTP_HOST`, `EMAIL_USER`, `EMAIL_PASS`, and `CONTACT_EMAIL` in the server-side `.env` file; for Gmail, use an app password. `CONTACT_EMAIL` is the required recipient inbox, and replies go to the visitor's submitted email address. `SMTP_PORT` defaults to `465`, and `SMTP_SECURE` defaults to `true` on port `465` (`false` for STARTTLS on port `587`). For deployment, set the same values in the hosting platform's server-side environment settings. Never expose these credentials in frontend code.
 
 ## Build
 
@@ -42,7 +42,7 @@ Environment Variables settings (Production, and Preview/Development if needed):
 - `SMTP_SECURE` (`true` for port `465`; `false` for port `587`)
 - `EMAIL_USER`
 - `EMAIL_PASS`
-- `CONTACT_EMAIL` (optional; defaults to `EMAIL_USER`)
+- `CONTACT_EMAIL` (required recipient inbox; replies go to the visitor's submitted email)
 
 Use your mail provider's SMTP credentials (for Gmail, an app password), then
 redeploy after adding or changing variables. Do not add credentials to
